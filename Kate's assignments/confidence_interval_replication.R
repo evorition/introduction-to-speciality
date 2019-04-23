@@ -1,10 +1,10 @@
-confidence_interval_replication <- function(n = 30,
+confidence_interval_replication <- function(n = 20,
                                             mean = 2,
                                             sd = sqrt(1/3),
-                                            r = 1000,
+                                            r = 10000,
                                             gamma = 0.95){
   
-  t <- abs(qnorm((1-gamma)/2))
+  t <- abs(qt((1-gamma)/2, df = n-1))
   
   failed_intervals <- 0
   

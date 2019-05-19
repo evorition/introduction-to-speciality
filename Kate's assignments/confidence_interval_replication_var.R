@@ -13,9 +13,9 @@ confidence_interval_replication_var <- function(n = 100,
   for(counter in seq(r)){
     X <- rnorm(n = n, mean = mean, sd = sqrt(var))
     sd_hat <- sd(X)
-    upper <- sd_hat * (1 + sqrt(n-1/chi) - 1)
+    upper <- sd_hat * (1 + sqrt((n-1)/chi) - 1)
     
-    if(upper < var){
+    if(upper < sqrt(var)){
       failed_intervals <- failed_intervals + 1
     }
     
